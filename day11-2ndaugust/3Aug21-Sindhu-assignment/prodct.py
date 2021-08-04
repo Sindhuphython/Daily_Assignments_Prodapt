@@ -11,6 +11,14 @@ class ProductDetails:
     def addproductdetail(self,productname,description,price,manufacturer,manufacturerdate,expirydate):
         dict1={"productname":productname,"description":description,"price":price,"manufacturer":manufacturer,"manufacturerdate":manufacturerdate,"expirydate":expirydate}
         productlist.append(dict1)
+def validate(vname,vdescription,vprice):
+    name1=re.match("([a-z]+)([a-z]+)([a-z]+)$",vname)
+    description1=re.match("([a-z]+)([a-z]+)([a-z]+)$",vdescription)
+    price1=re.match("[0-9]{0,7}$",vprice)
+    if name1 and description1 and price1:
+        return True
+    else:
+        return False
 obj=ProductDetails()
 while True:
     print("1.Add Product")
