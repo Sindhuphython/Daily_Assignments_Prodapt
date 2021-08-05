@@ -1,6 +1,7 @@
 import csv
 studentlist=[]
-headerContent=["total","name","rollno","admin","english","hindi","maths","science","social"]
+try:
+    headerContent=["total","name","rollno","admin","english","hindi","maths","science","social"]
 class StudentDetails:
     # def _init_(self,name,rollno,admin,english,hindi,maths,science,social):
         # self.name=name
@@ -43,6 +44,9 @@ while(True):
         science=int(input("Enter your Science marks: "))
         social=int(input("Enter your Social Marks : "))
         obj1.addstudentdetail(name,rollno,admino,english,hindi,maths,science,social)
+        else:
+            logging.error("check your name,description,price")
+
     if choice==2:
         print(studentlist)
     if choice==3:
@@ -57,5 +61,9 @@ while(True):
             writer.writerows(studentlist)
     if choice==6:
         break
+except Exception:
+    logging.error("Something Went Wrong!")
+finally:
+    print("code completed successfully")
             
         
